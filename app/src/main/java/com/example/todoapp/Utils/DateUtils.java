@@ -22,7 +22,6 @@ public class DateUtils {
         SimpleDateFormat simpleDateFormat = (SimpleDateFormat) SimpleDateFormat.getDateInstance();
         simpleDateFormat.applyPattern(dateFormat);
         return simpleDateFormat.format(date);
-
     }
 
 }
