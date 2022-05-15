@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -87,6 +88,16 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.menu_about:
                 startActivity(new Intent(MainActivity.this, AboutUsActivity.class));
+                break;
+            case R.id.menu_email:
+                Intent intent = new Intent(Intent.ACTION_VIEW)
+                        .setType("plain/text")
+                        .setData(Uri.parse("kismatkhl@gmail.com"))
+                        .setClassName("com.google.android.gm", "com.google.android.gm.ComposeActivityGmail")
+                        .putExtra(Intent.EXTRA_EMAIL, new String[]{"kismatkhl@gmail.com"})
+                        .putExtra(Intent.EXTRA_SUBJECT, "test")
+                        .putExtra(Intent.EXTRA_TEXT, "hello. this is a kismat khl.");
+                startActivity(intent);
                 break;
             case R.id.menu_exit:
                 finish();
